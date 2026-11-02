@@ -1,24 +1,18 @@
 
-1. Open **PowerShell** (Windows) or **Terminal** (macOS/Linux), and configure Git if this is your first time using it:
-
-   ```bash
-   git config --global user.name "Your Name"
-   ```
-
-2. Clone the repository to your computer:
+1. Clone the repository to your computer:
 
    ```bash
    git clone https://github.com/samayouy/Assignment4.git
    cd Assignment4
    ```
 
-3. Start Julia from **inside the `Assignment4` folder**:
+2. Start Julia from **inside the `Assignment4` folder**:
 
    ```bash
    julia
    ```
 
-4. In the **Julia REPL** (not in PowerShell), run:
+3. In the **Julia** (not in PowerShell), run:
 
    ```julia
    using IJulia
@@ -68,27 +62,3 @@
    git add A04.ipynb
    git push
    ```
-
-> **Important:** Saving in Jupyter only saves the local file. The other group members will see your changes on GitHub **only after you `git commit` and `git push`**. They must run **`git pull`** to bring those changes to their own computers.
-
-## 4. Collaboration rules
-
-- **One editor at a time** for our shared `.ipynb` file. Coordinate in the group chat.
-- **Pull before editing; commit and push after editing.**
-- Close the notebook tab (and stop its kernel) before pulling someone else's changes; reopen the updated notebook afterward.
-- Keep the original assignment questions and notebook structure intact. Only modify your assigned section unless we agree otherwise.
-- **Never use `git push --force`** on the shared branch.
-- If `git pull` or `git push` reports a conflict or rejected push, **stop and message the group**. Do not overwrite others' work.
-- If the repo includes `Project.toml` (and optionally `Manifest.toml`), run `import Pkg; Pkg.activate("."); Pkg.instantiate()` in the notebook before using its packages.
-
-## 5. Before final submission
-
-The final reviewer should pull the latest version, open the notebook with the Julia kernel, **restart the kernel and run all cells in order**, check all answers/plots for errors, save, push any final corrections, and submit the `.ipynb` file required by the instructor.
-
-### Quick reference
-
-```text
-START:  cd to Assignment4  →  git status  →  git pull  →  start Julia/Jupyter
-EDIT:   edit + run notebook  →  save in Jupyter
-FINISH: git add  →  git commit  →  git push  →  notify teammates
-```
