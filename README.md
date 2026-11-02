@@ -25,7 +25,7 @@
    notebook(dir=pwd())
    ```
 
-## 2. Every time you want to edit
+## Every time you want to edit
 
 **Before starting:** Confirm that no one else is currently editing the shared notebook. We will take turns editing **the same `.ipynb` file** to prevent Git merge conflicts.
 
@@ -37,14 +37,11 @@
 
    On macOS/Linux, use `cd ~/Assignment4` (if cloned to your home directory).
 
-2. Check your local state and download teammates' latest changes **before opening the notebook**:
+2. Make sure to download teammates' latest changes **before opening the notebook**:
 
    ```bash
-   git status
    git pull
    ```
-
-   Only run `git pull` if you have no uncommitted changes. If `git status` shows local changes, save/commit them or coordinate with the group first.
 
 3. From that same folder, launch Julia:
 
@@ -59,25 +56,18 @@
    notebook(dir=pwd())
    ```
 
-5. Open the shared `.ipynb`, edit your assigned question(s), run/check your code, and **save (`Ctrl+S` / `Cmd+S`)**.
+5. Edit and **save**.
 
-## 3. When you finish editing: share your changes
+## 3. When finish: upload your changes
 
-1. Make sure the notebook is saved in Jupyter.
-2. Open **another terminal** in the same `Assignment4` folder (keep Jupyter running if needed).
-3. Run:
+1. Open **another terminal** in the same `Assignment4` folder.
+2. Run:
 
    ```bash
    git status
-   git add *.ipynb
-   git commit -m "Complete Question X"
+   git add A04.ipynb
    git push
    ```
-
-   Replace `X` with your question number (or describe your changes). `git add *.ipynb` stages notebook files in the project folder; use the exact notebook filename instead if there is more than one notebook.
-
-4. Refresh the repository page on GitHub to confirm that your latest commit appears.
-5. **Tell the group that you have pushed and the next person can start.**
 
 > **Important:** Saving in Jupyter only saves the local file. The other group members will see your changes on GitHub **only after you `git commit` and `git push`**. They must run **`git pull`** to bring those changes to their own computers.
 
