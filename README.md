@@ -1,10 +1,3 @@
-# Assignment 4 — Julia Group Project
-
-This repository contains our shared Julia Jupyter notebook for Assignment 4. **Please follow the workflow below so everyone's changes stay in sync.**
-
-## 1. First-time setup (do this once)
-
-1. Accept the invitation to collaborate on this private GitHub repository.
 2. Install [Julia](https://julialang.org/downloads/) and [Git](https://git-scm.com/downloads) if needed. Make sure you can run `julia` and `git --version` from a terminal.
 3. Open **PowerShell** (Windows) or **Terminal** (macOS/Linux), and configure Git if this is your first time using it:
 
