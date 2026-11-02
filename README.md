@@ -1,34 +1,29 @@
-2. Install [Julia](https://julialang.org/downloads/) and [Git](https://git-scm.com/downloads) if needed. Make sure you can run `julia` and `git --version` from a terminal.
-3. Open **PowerShell** (Windows) or **Terminal** (macOS/Linux), and configure Git if this is your first time using it:
+
+1. Open **PowerShell** (Windows) or **Terminal** (macOS/Linux), and configure Git if this is your first time using it:
 
    ```bash
    git config --global user.name "Your Name"
-   git config --global user.email "your-github-email@example.com"
    ```
 
-4. Clone the repository to your computer:
+2. Clone the repository to your computer:
 
    ```bash
    git clone https://github.com/samayouy/Assignment4.git
    cd Assignment4
    ```
 
-   On the first clone or push, Git may ask you to sign in to GitHub through your browser.
-
-5. Start Julia from **inside the `Assignment4` folder**:
+3. Start Julia from **inside the `Assignment4` folder**:
 
    ```bash
    julia
    ```
 
-6. In the **Julia REPL** (not in PowerShell), run:
+4. In the **Julia REPL** (not in PowerShell), run:
 
    ```julia
    using IJulia
    notebook(dir=pwd())
    ```
-
-   If IJulia is not installed, run `import Pkg; Pkg.add("IJulia")` once in Julia and then retry. Open the assignment `.ipynb` file in the browser, and select the **Julia** kernel.
 
 ## 2. Every time you want to edit
 
