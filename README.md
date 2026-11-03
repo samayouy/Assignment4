@@ -1,20 +1,9 @@
 
 # Assignment 4 — Team Collaboration Guide
 
-This repository is shared by three group members. We use **separate Git branches** so everyone can work independently, and **Pull Requests** to merge completed work into `main`.
-
-## 1. Branch Structure
-
-- `main` — Final version of the assignment.
-- Each group member has their own branch, named after them.
 
 **Important:**
 - Always work on your own branch.
-- Never push directly to `main`.
-- Use Pull Requests to merge completed work into `main`.
-- All members can edit and upload changes to their own branches at any time.
-
----
 
 ## 2. First-Time Branch Setup (Only Once)
 
