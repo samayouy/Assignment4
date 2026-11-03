@@ -58,7 +58,7 @@
 2. Run:
 
    ```bash
-   git status
    git add A04.ipynb
+   commit -m （做了哪些更新）
    git push
    ```
