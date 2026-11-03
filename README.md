@@ -1,32 +1,34 @@
 
 # Assignment 4 — Team Collaboration Guide
 
-This repository is shared by three group members. We use separate Git branches to work independently and Pull Requests to merge our work into `main`.
+This repository is shared by three group members. We use **separate Git branches** so everyone can work independently, and **Pull Requests** to merge completed work into `main`.
 
 ## 1. Branch Structure
 
-| Branch | Purpose |
-|---|---|
-| `main` | Final version of the assignment |
-| `Student1` | Student 1's working branch |
-| `Student2` | Student 2's working branch |
-| `Student3` | Student 3's working branch |
+- `main` — Final version of the assignment.
+- Each group member has their own branch, named after them.
 
-**Important rules:**
-- Each student must work on their own branch.
-- Do not commit or push directly to `main`.
-- All changes to `main` should go through Pull Requests.
-- We are working with the same `A04.ipynb` notebook. Separate branches allow independent editing, but Git merge conflicts may still occur if multiple people modify the same notebook.
+**Important:**
+- Always work on your own branch.
+- Never push directly to `main`.
+- Use Pull Requests to merge completed work into `main`.
+- All members can edit and upload changes to their own branches at any time.
 
-## 2. First-Time Setup (Only Once)
+---
 
-Everyone has already cloned the repository, so **do not clone it again**.
+## 2. First-Time Branch Setup (Only Once)
+
+Everyone has already cloned the repository. **Do not clone it again.**
+
+The three personal branches have already been created on GitHub. You only need to connect your local repository to your assigned branch.
 
 ### Step 1: Open the project folder
 
-Open a terminal (PowerShell, Git Bash, or VS Code Terminal).
+Open PowerShell, Git Bash, or VS Code Terminal.
 
-On Windows (if the repository is in your home directory):
+Navigate to your existing `Assignment4` folder.
+
+For example, on Windows:
 
 ```powershell
 cd "$HOME\Assignment4"
@@ -38,47 +40,51 @@ On macOS/Linux:
 cd ~/Assignment4
 ```
 
-If you cloned the repository somewhere else, navigate to that folder instead.
+If your repository is located somewhere else, navigate to that folder instead.
 
-### Step 2: Fetch all branches
+### Step 2: Fetch the existing GitHub branches
 
 ```bash
 git fetch origin
 ```
 
+This downloads information about all branches from GitHub without changing your files.
+
 ### Step 3: Switch to your assigned branch
 
-Choose **only your own branch**.
-
-Xuege Xu:
+Replace `YOUR_BRANCH_NAME` with your actual branch name on GitHub.
 
 ```bash
-git switch --track origin/Xuege Xu
+git switch --track origin/YOUR_BRANCH_NAME
 ```
 
-Chongwei Chen:
+For example, if your assigned branch is `Stanley-Wang`:
 
 ```bash
-git switch --track origin/Chongwei Chen
+git switch --track origin/Stanley-Wang
 ```
 
-Stanley Wang:
+This creates a local working branch connected to your **already existing remote branch** on GitHub.
+
+You are not creating another branch on GitHub.
+
+If your local branch already exists, simply use:
 
 ```bash
-git switch --track origin/Stanley Wang
+git switch YOUR_BRANCH_NAME
 ```
 
-This creates a local branch that tracks the corresponding remote branch.
-
-Verify your current branch:
+### Step 4: Verify your branch
 
 ```bash
 git branch --show-current
 ```
 
-The output should be your assigned branch name, not `main`.
+The output should show your own branch name, not `main`.
 
-You only need to perform this setup once.
+**You only need to complete this setup once.**
+
+**Note:** If Git prevents you from switching branches because of uncommitted changes, save or commit those changes first. Do not discard your existing work.
 
 ---
 
@@ -87,6 +93,8 @@ You only need to perform this setup once.
 Follow these steps **every time you start a new editing session**.
 
 ### Step 1: Open a terminal in the project folder
+
+Navigate to the `Assignment4` folder.
 
 On Windows:
 
@@ -102,49 +110,50 @@ cd ~/Assignment4
 
 ### Step 2: Switch to your own branch
 
-For example, Student 2 runs:
-
 ```bash
-git switch Student2
+git switch YOUR_BRANCH_NAME
 ```
 
-Students 1 and 3 should replace `Student2` with their own branch names.
-
-Check your branch:
+Verify your branch:
 
 ```bash
 git branch --show-current
 ```
 
-**Always verify that you are on your own branch before editing.**
+**Make sure you are on your own branch before editing.**
 
-### Step 3: Download the latest changes
-
-First, pull updates from your own remote branch:
+### Step 3: Pull the latest changes from your branch
 
 ```bash
-git pull --ff-only origin Student2
+git pull --ff-only origin YOUR_BRANCH_NAME
 ```
 
-Then fetch the latest information from GitHub:
+This downloads any changes previously uploaded to your branch.
+
+Make sure you have committed or safely saved your previous work before pulling.
+
+### Step 4: Synchronize with the latest main branch
+
+Other members may have merged their work into `main` since your last editing session.
+
+To download their latest changes:
 
 ```bash
 git fetch origin
-```
-
-Merge any new changes from `main` into your own branch:
-
-```bash
 git merge origin/main
 ```
 
-If `main` has not changed, Git will report `Already up to date.`
+If your branch is already up to date, Git will display:
 
-If a merge conflict occurs, resolve it before continuing. Do not overwrite your teammates' work.
+```
+Already up to date.
+```
 
-**Note:** Replace `Student2` with your own branch name. Make sure your previous work has been committed before pulling or merging.
+If Git reports a merge conflict, stop and resolve it before continuing. Do not overwrite your teammates' changes.
 
-### Step 4: Start Julia
+You do not need to merge if `main` has not changed, but checking for updates is recommended.
+
+### Step 5: Start Julia
 
 From inside the `Assignment4` folder, run:
 
@@ -152,24 +161,28 @@ From inside the `Assignment4` folder, run:
 julia
 ```
 
-### Step 5: Launch Jupyter Notebook
+### Step 6: Launch Jupyter Notebook
 
-In the **Julia REPL (not PowerShell)**, run:
+Inside the **Julia REPL (not PowerShell)**, run:
 
 ```julia
 using IJulia
 notebook(dir=pwd())
 ```
 
-This launches Jupyter Notebook in the current `Assignment4` folder.
+This launches Jupyter Notebook in your current `Assignment4` folder.
 
-Open `A04.ipynb`.
+Open:
 
-### Step 6: Edit and save
+```
+A04.ipynb
+```
 
-Make your changes in the notebook.
+### Step 7: Edit and save
 
-**Remember to save your notebook before uploading your changes.**
+Work on your assigned exercises.
+
+Remember to **save the notebook** before committing your changes.
 
 ---
 
@@ -177,7 +190,7 @@ Make your changes in the notebook.
 
 After saving your notebook, open another terminal in the same `Assignment4` folder.
 
-### Step 1: Check your current branch and changes
+### Step 1: Check your branch and changes
 
 ```bash
 git branch --show-current
@@ -188,11 +201,13 @@ Make sure you are on your own branch.
 
 ### Step 2: Stage your changes
 
+If you only edited the notebook:
+
 ```bash
 git add A04.ipynb
 ```
 
-If you also modified other files that should be uploaded, you can use:
+If you also want to upload other modified files:
 
 ```bash
 git add .
@@ -210,120 +225,203 @@ For example:
 git commit -m "Complete exercise 2"
 ```
 
+Use a meaningful commit message describing your work.
+
 ### Step 4: Push to your own branch
 
-For Student 2:
-
 ```bash
-git push origin Student2
+git push origin YOUR_BRANCH_NAME
 ```
 
-Replace `Student2` with your own branch name.
+Replace `YOUR_BRANCH_NAME` with your assigned branch name.
 
-**Done!** Your changes are now uploaded to GitHub on your personal branch.
+**Done!** Your changes have now been uploaded to your personal branch on GitHub.
 
 You can repeat this process as often as needed.
 
-Your changes will not affect `main` until they are merged through a Pull Request.
+**Important:** Pushing to your own branch does not modify `main`.
 
 ---
 
 ## 5. How to Merge Your Work into Main (Pull Request)
 
-When your work is ready to be included in the final assignment:
+When your work is complete and ready to become part of the final assignment:
 
-1. Go to the GitHub repository:
+1. Open the GitHub repository:
    https://github.com/samayouy/Assignment4
 2. Click **Pull requests**.
 3. Click **New pull request**.
 4. Select:
    - **Base:** `main`
-   - **Compare:** Your own branch (`Student1`, `Student2`, or `Student3`)
-5. Review the changes.
+   - **Compare:** Your own branch
+5. Review the changes carefully.
 6. Click **Create pull request**.
-7. Ask another team member to review your changes.
-8. After review, click **Merge pull request**.
+7. Ask another group member to review your changes.
+8. Once everything is correct, click **Merge pull request**.
+9. Click **Confirm merge**.
+
+Your completed work is now part of `main`.
 
 **Important:**
 - Do not delete your personal branch after merging.
-- We will continue using the same three branches throughout the assignment.
-- If GitHub reports merge conflicts, resolve them before merging.
-- Do not merge a Pull Request if it contains unintended changes or removes a teammate's work.
+- We will continue using the same branches throughout the assignment.
+- Do not merge if GitHub reports unresolved conflicts.
+- Make sure your Pull Request does not accidentally remove another member's work.
 
 ---
 
 ## 6. How to Get Teammates' Latest Work
 
-When another student's Pull Request has been merged into `main`, their changes become part of the shared final version.
+After another member merges their Pull Request into `main`, their changes become part of the shared final version.
 
-To get those changes into your own branch, run:
+To get these changes into your own branch, run:
 
 ```bash
-git switch Student2
+git switch YOUR_BRANCH_NAME
 git fetch origin
 git merge origin/main
 ```
 
-If everything merges successfully, upload your updated branch:
+If the merge succeeds, update your branch on GitHub:
 
 ```bash
-git push origin Student2
+git push origin YOUR_BRANCH_NAME
 ```
 
-Replace `Student2` with your own branch name.
+Your branch now includes the latest changes from `main`.
 
-This ensures your branch includes the latest work from `main`.
-
-**Note:** Because everyone is editing `A04.ipynb`, merging may occasionally produce conflicts. If this happens, coordinate with teammates to resolve the conflicting notebook changes.
+**Note:** This synchronization is also included in the daily workflow in Section 3, so you can simply follow those steps before each editing session.
 
 ---
 
-## 7. Team Collaboration Rules
+## 7. Important Notes About Jupyter Notebook Collaboration
 
-1. **Always work on your own branch.** Never edit directly on `main`.
-2. **Pull before editing.** Make sure your branch is up to date before starting Julia.
-3. **Save before committing.** Always save your Jupyter Notebook before running Git commands.
-4. **Commit and push regularly.** Do not leave all your changes uncommitted until the deadline.
-5. **Use descriptive commit messages.** For example, `"Complete exercise 1"` rather than `"Update"`.
-6. **Coordinate notebook editing.** Avoid modifying the same cells as another team member at the same time, even when using separate branches.
-7. **Use Pull Requests.** Review changes before merging into `main`.
-8. **Do not delete other members' work.** Resolve conflicts carefully.
-9. **Keep `main` stable.** The final `main` branch should contain the complete, tested assignment.
+We are working with the same `A04.ipynb` file.
+
+Although separate branches allow us to edit independently, **merge conflicts can still occur** if multiple members modify overlapping parts of the same notebook.
+
+To minimize conflicts:
+
+1. Focus on your assigned exercises.
+2. Avoid modifying another member's cells unless necessary.
+3. Avoid unnecessary changes to notebook structure or cell order.
+4. Save, commit, and push your work regularly.
+5. Synchronize your branch with `main` before starting a new editing session.
+6. Coordinate with teammates when resolving merge conflicts.
+7. Do not force-push or overwrite another member's work.
+
+If a notebook merge conflict occurs, ask the group before resolving it. Do not blindly accept one version, as this may delete another member's work.
 
 ---
 
-## 8. Quick Reference: Daily Commands
+## 8. Team Collaboration Rules
 
-Replace `Student2` with your assigned branch name.
+1. **Always work on your own branch.** Never push directly to `main`.
+2. **Pull before editing.** Download the latest changes before starting Julia.
+3. **Save before committing.** Always save `A04.ipynb` before using Git.
+4. **Commit and push regularly.** Do not wait until the deadline.
+5. **Use descriptive commit messages.** For example, `"Complete exercise 3"`.
+6. **Use Pull Requests.** Completed work must be reviewed before merging into `main`.
+7. **Keep personal branches.** Do not delete your assigned branch after merging.
+8. **Respect other members' work.** Resolve conflicts carefully.
+9. **Keep `main` stable.** The final `main` should contain the complete, tested assignment.
 
-### Before editing
+---
+
+## 9. Quick Reference — Daily Workflow
+
+Replace `YOUR_BRANCH_NAME` with your assigned branch name.
+
+### Every time you start editing
+
+Open a terminal in `Assignment4`:
 
 ```bash
-cd Assignment4
-git switch Student2
-git pull --ff-only origin Student2
+git switch YOUR_BRANCH_NAME
+git pull --ff-only origin YOUR_BRANCH_NAME
 git fetch origin
 git merge origin/main
 julia
 ```
 
-Then, inside Julia:
+Inside Julia:
 
 ```julia
 using IJulia
 notebook(dir=pwd())
 ```
 
-### After editing and saving
+Open `A04.ipynb`, edit your exercises, and save.
 
-Open another terminal inside `Assignment4`:
+### Every time you finish editing
+
+Open another terminal in `Assignment4`:
 
 ```bash
 git add A04.ipynb
 git commit -m "Describe your changes"
-git push origin Student2
+git push origin YOUR_BRANCH_NAME
 ```
 
-**Workflow summary:**
+### When your work is ready for the final version
 
-`Switch to your branch → Pull & Sync → Start Julia → Edit → Save → Commit → Push → Pull Request → Merge into main`
+On GitHub:
+
+1. Open **Pull requests → New pull request**.
+2. Select `base: main` and `compare: YOUR_BRANCH_NAME`.
+3. Create the Pull Request.
+4. Review and merge it into `main`.
+
+---
+
+## 10. Complete Workflow Summary
+
+**First time only:**
+
+```
+Open existing Assignment4 folder
+    ↓
+git fetch origin
+    ↓
+git switch --track origin/YOUR_BRANCH_NAME
+    ↓
+Local branch is ready
+```
+
+**Every editing session:**
+
+```
+Switch to your own branch
+    ↓
+Pull latest changes
+    ↓
+Synchronize with main
+    ↓
+Start Julia
+    ↓
+using IJulia; notebook(dir=pwd())
+    ↓
+Edit A04.ipynb
+    ↓
+Save
+    ↓
+Git add + commit + push
+    ↓
+Changes saved to your personal GitHub branch
+```
+
+**When ready to merge:**
+
+```
+Personal Branch
+    ↓
+Create Pull Request
+    ↓
+Review Changes
+    ↓
+Merge into main
+    ↓
+Other members synchronize their branches
+```
+
+**Remember: Always work on your assigned branch and use Pull Requests to update `main`.**
